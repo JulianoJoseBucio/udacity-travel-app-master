@@ -1,0 +1,16 @@
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background: url("../media/plane.jpg") no-repeat center center
+    fixed;
+  background-position: top;
+  background-size: 100%;
+  background-attachment: scroll;
+  background-color: #ad764a;
+  -ms-overflow-style: none;
+  width: 100%;
+  height: 100%;
+}

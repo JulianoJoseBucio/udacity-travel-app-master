@@ -1,0 +1,73 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel App</title>
+</head>
+
+<body>
+  <header>
+    <div class="logo__container">
+      
+
+    </div>
+
+  </header>
+  <main>
+    <div class="container">
+      <div id="trip-form__container">
+        <div class="trip-text__container">
+          <h1>Travel App</h1>
+          <p>Plan your next trip  - type a city name and your travel dates and receive weather and
+            country information.</p>
+        </div>
+
+        <form onsubmit="Client.submitForm(event)" autocomplete="off">
+          <label for="city"></label>
+          <input id="city" type="text" placeholder="Enter city" required>
+          <label for="startDate">Start date:</label>
+          <input id="startDate" type="date" required>
+          <label for="endDate">End date:</label>
+          <input id="endDate" type="date" required>
+          <input type="submit">
+        </form>
+      </div>
+      <div id="new-trip">
+        <div>
+          <h2 class="headline">New trip</h2>
+          <p class="description">Make sure to save your trip so you can get back to it later.</p>
+        </div>
+        <div id="new-trip__container"></div>
+      </div>
+      <div id="trips">
+        <h1>Your trips</h1>
+        <div id="trips__container">
+          <p id="no-trips__message">No active trips.</p>
+
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+  
+  <script>
+    // Check that service workers are supported
+    if ('serviceWorker' in navigator) {
+      // Use the window load event to keep the page load performant
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js').then(registration => {
+          console.log('SW registered: ', registration);
+        }).catch(registrationError => {
+          console.log('SW registration failed: ', registrationError);
+        });
+      });
+    } else {
+      console.info("serviceWorker not supported");
+
+    }
+  </script>
+</body>
+
+</html>
